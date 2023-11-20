@@ -151,7 +151,7 @@ Its implementation does not have to keep track of character names nor does it ne
 
 ```
 1. Between each spoken line of a character, the player must be able to press 'space' to continue to the next line
-2. Previous text should be slightly dimned as the current line is loaded onto the screen with standard brightness
+2. Previous text should be slightly dimmed as the current line is loaded onto the screen with standard brightness
 3. There is typically a button that can be pressed to toggle the dialogue system on and off (as a way to let players see the background image more clearly)
 ```
 
@@ -188,8 +188,18 @@ However, it would be much easier to sync together the dialogue line with a voice
 
 </div>
 
-<br><br>
-___________________________________
-
-
 </div>
+
+<br><br>
+
+## Takeaway
+
+Since I would like to implement a Full Screen Dialogue System, here is the outline on what it would involve (since I don't have enough time to do this right now (Fall 2023 semester) :D )
+
+1. A screen-full of text will constitute 1 Dialogue_Box object
+   1.  Each Dialogue_Box object will point to another Dialogue_Box object when the 1st ends
+   2.  Each Dialogue_Box object will include a Dialogue_Text Object and a Dialogue_Animations Object
+   3.  The animations will be in sync with the text, where each animation pertains to the images on the screen (such as a character sprite moving around in between or during a dialogue line)
+       1. To get in sync, if there are 7 dialogue lines in the current object, then each animation will have an [int start_animation] variable that will start the animation at the given dialogue line
+       2. If the player prematurely starts the next dialogue line while the current line is still be spoken/animated, the current animation should be skipped to its end result 
+2. ...
